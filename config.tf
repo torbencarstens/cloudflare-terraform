@@ -215,3 +215,17 @@ resource "cloudflare_record" "clemens_a" {
   value   = var.clemens_ip
   proxied = var.proxy_clemens_ip
 }
+
+resource "cloudflare_record" "localhost_a" {
+  zone_id = var.zone_id
+  name    = "localhost.${var.base_domain}"
+  type    = "A"
+  value   = "127.0.0.1"
+}
+
+resource "cloudflare_record" "localhost_a" {
+  zone_id = var.zone_id
+  name    = "localhost.${var.base_domain}"
+  type    = "AAAA"
+  value   = "::1"
+}
