@@ -35,6 +35,11 @@ variable "home_domain" {
   default = "home.carstens.tech"
 }
 
+variable "kubernetes_static_files_domain" {
+  type    = string
+  default = "static-files.carstens.tech"
+}
+
 variable "zone_id" {
   type    = string
   default = "6dec3e2deb9c51ea3068a5d944017461"
@@ -50,6 +55,61 @@ variable "proxy_home_ip" {
 
 variable "proxy_home_cnames" {
   type    = bool
+}
+
+variable "local_dns_ip" {
+  type    = string
+}
+
+variable "kubernetes_static_files_ip" {
+  type    = string
+}
+
+variable "proxy_kubernetes_static_files_ip" {
+  type    = bool
+}
+
+variable "proxy_kubernetes_static_files_cname" {
+  type    = bool
+}
+
+resource "cloudflare_record" "kubernetes_static_files_a" {
+  zone_id = var.zone_id
+  name    = var.kubernetes_static_files_domain
+  type    = "A"
+  value   = var.kubernetes_static_files_ip
+  proxied = var.proxy_kubernetes_static_files_ip
+}
+
+resource "cloudflare_record" "cv_cname" {
+  zone_id = var.zone_id
+  name    = "cv"
+  type    = "CNAME"
+  value   = var.kubernetes_static_files_domain
+  proxied = var.proxy_kubernetes_static_files_cname
+}
+
+resource "cloudflare_record" "pic_cname" {
+  zone_id = var.zone_id
+  name    = "pic"
+  type    = "CNAME"
+  value   = var.kubernetes_static_files_domain
+  proxied = var.proxy_kubernetes_static_files_cname
+}
+
+resource "cloudflare_record" "trash_cname" {
+  zone_id = var.zone_id
+  name    = "trash"
+  type    = "CNAME"
+  value   = var.kubernetes_static_files_domain
+  proxied = var.proxy_kubernetes_static_files_cname
+}
+
+resource "cloudflare_record" "local_dns_a" {
+  zone_id = var.zone_id
+  name    = "dns.${var.base_domain}"
+  type    = "A"
+  value   = var.local_dns_ip
 }
 
 resource "cloudflare_record" "home_domain_a" {
