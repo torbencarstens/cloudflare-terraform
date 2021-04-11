@@ -60,14 +60,6 @@ resource "cloudflare_record" "home_domain_a" {
   proxied = var.proxy_home_ip
 }
 
-resource "cloudflare_record" "{{rep}}_cname" {
-  zone_id = var.zone_id
-  name    = "{{rep}}"
-  type    = "CNAME"
-  value   = var.home_domain
-  proxied = var.proxy_home_cnames
-}
-
 resource "cloudflare_record" "vpn_cname" {
   zone_id = var.zone_id
   name    = "vpn"
