@@ -30,9 +30,9 @@ variable "base_domain" {
   default = "carstens.tech"
 }
 
-variable "hoas_domain" {
+variable "home_domain" {
   type    = string
-  default = "hoas.carstens.tech"
+  default = "home.carstens.tech"
 }
 
 variable "zone_id" {
@@ -52,13 +52,22 @@ resource "cloudflare_record" "grafana_cname" {
   zone_id = var.zone_id
   name    = "grafana"
   type    = "CNAME"
-  value   = var.hoas_domain
-  proxied = var.proxy_records
+  value   = var.home_domain
+  proxied = var.proxy_home_cnames
 }
 
-resource "cloudflare_record" "hoas_domain_a" {
+resource "cloudflare_record" "hoas_cname" {
   zone_id = var.zone_id
-  name    = var.hoas_domain
+  name    = "hoas"
+  type    = "CNAME"
+  value   = var.home_domain
+  proxied = var.proxy_home_cnames
+}
+
+
+resource "cloudflare_record" "home_domain_a" {
+  zone_id = var.zone_id
+  name    = var.home_domain
   type    = "A"
   value   = var.home_ip
   proxied = var.proxy_home_ip
