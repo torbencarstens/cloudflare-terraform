@@ -5,3 +5,5 @@ local_dns_ip = "10.10.10.1"
 kubernetes_static_files_ip = "35.227.211.34"
 proxy_kubernetes_static_files_ip = true
 proxy_kubernetes_static_files_cname = true
+clemens_ip = "34.71.248.159"
+proxy_clemens_ip = true

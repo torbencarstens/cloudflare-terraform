@@ -73,6 +73,14 @@ variable "proxy_kubernetes_static_files_cname" {
   type    = bool
 }
 
+variable "clemens_ip" {
+  type = string
+}
+
+variable "proxy_clemens_ip" {
+  type    = bool
+}
+
 resource "cloudflare_record" "kubernetes_static_files_a" {
   zone_id = var.zone_id
   name    = var.kubernetes_static_files_domain
@@ -198,4 +206,12 @@ resource "cloudflare_record" "hoas_cname" {
   type    = "CNAME"
   value   = var.home_domain
   proxied = var.proxy_home_cnames
+}
+
+resource "cloudflare_record" "clemens_a" {
+  zone_id = var.zone_id
+  name    = "clemens.${var.base_domain}"
+  type    = "A"
+  value   = var.clemens_ip
+  proxied = var.proxy_clemens
 }
