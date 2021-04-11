@@ -223,7 +223,7 @@ resource "cloudflare_record" "localhost_a" {
   value   = "127.0.0.1"
 }
 
-resource "cloudflare_record" "localhost_a" {
+resource "cloudflare_record" "localhost_aaaa" {
   zone_id = var.zone_id
   name    = "localhost.${var.base_domain}"
   type    = "AAAA"
