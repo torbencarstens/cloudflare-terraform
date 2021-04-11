@@ -1,0 +1,12 @@
+;; MX Records
+*.carstens.tech.	1	IN	MX	20 in2-smtp.messagingengine.com.
+*.carstens.tech.	1	IN	MX	10 in1-smtp.messagingengine.com.
+carstens.tech.	1	IN	MX	20 in2-smtp.messagingengine.com.
+carstens.tech.	1	IN	MX	10 in1-smtp.messagingengine.com.
+
+;; TXT Records
+*.carstens.tech.	1	IN	TXT	"v=spf1 include:spf.messagingengine.com ?all"
+carstens.tech.	1	IN	TXT	"keybase-site-verification=r7bzEcxY6viGoC0M-2sLHNALeWbBmTxovdmvz4xdO2U"
+carstens.tech.	1	IN	TXT	"have-i-been-pwned-verification=48c7c74dd49c56867fb95aed7fff4916"
+carstens.tech.	1	IN	TXT	"v=spf1 include:spf.messagingengine.com ?all"
+
