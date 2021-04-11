@@ -48,6 +48,10 @@ variable "proxy_home_ip" {
   type    = bool
 }
 
+variable "proxy_home_cnames" {
+  type    = bool
+}
+
 resource "cloudflare_record" "grafana_cname" {
   zone_id = var.zone_id
   name    = "grafana"
