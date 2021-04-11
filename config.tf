@@ -229,3 +229,12 @@ resource "cloudflare_record" "localhost_a" {
   type    = "AAAA"
   value   = "::1"
 }
+
+resource "cloudflare_record" "uptime_uri" {
+  zone_id = var.zone_id
+  name    = "uptime.${var.base_domain}"
+  type    = "URI"
+  value   = "stats.uptimerobot.com/Wp5yKIjLNk"
+  weight = 1
+  priority = 1
+}
