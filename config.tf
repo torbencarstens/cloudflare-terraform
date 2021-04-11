@@ -213,5 +213,5 @@ resource "cloudflare_record" "clemens_a" {
   name    = "clemens.${var.base_domain}"
   type    = "A"
   value   = var.clemens_ip
-  proxied = var.proxy_clemens
+  proxied = var.proxy_clemens_ip
 }
