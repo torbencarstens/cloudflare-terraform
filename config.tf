@@ -238,10 +238,3 @@ resource "cloudflare_record" "zoom_cname" {
   proxied = false
 }
 
-resource "cloudflare_record" "zoom_txt" {
-  zone_id = var.zone_id
-  name    = "zoom.${var.base_domain}"
-  type    = "TXT"
-  value   = "0qqlHG0qpWPuClpj61wHa4-bqW6i2hozZrdX2OxfhCA"
-}
-
