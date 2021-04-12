@@ -234,7 +234,7 @@ resource "cloudflare_record" "zoom_cname" {
   zone_id = var.zone_id
   name    = "zoom.${var.base_domain}"
   type    = "CNAME"
-  value   = "home"
+  value   = var.home_domain
   proxied = false
 }
 
