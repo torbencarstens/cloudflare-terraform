@@ -229,3 +229,19 @@ resource "cloudflare_record" "localhost_aaaa" {
   type    = "AAAA"
   value   = "::1"
 }
+
+resource "cloudflare_record" "zoom_cname" {
+  zone_id = var.zone_id
+  name    = "zoom.${var.base_domain}"
+  type    = "CNAME"
+  value   = "home"
+  proxied = false
+}
+
+resource "cloudflare_record" "zoom_txt" {
+  zone_id = var.zone_id
+  name    = "zoom.${var.base_domain}"
+  type    = "TXT"
+  value   = "0qqlHG0qpWPuClpj61wHa4-bqW6i2hozZrdX2OxfhCA"
+}
+
