@@ -238,9 +238,9 @@ resource "cloudflare_record" "zoom_cname" {
   proxied = false
 }
 
-resource "cloudflare_record" "rancher_cname" {
+resource "cloudflare_record" "authelia_cname" {
   zone_id = var.zone_id
-  name    = "rancher.${var.base_domain}"
+  name    = "authelia.${var.base_domain}"
   type    = "CNAME"
   value   = var.home_domain
   proxied = false
