@@ -5,6 +5,7 @@ resource "cloudflare_record" "k8s_base_domain" {
     value = var.kubernetes_ip
     type = "A"
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "k8s_base_domain_ipv6" {
@@ -12,6 +13,7 @@ resource "cloudflare_record" "k8s_base_domain_ipv6" {
     value = var.kubernetes_ipv6
     type = "AAAA"
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "base_domain" {
@@ -20,6 +22,7 @@ resource "cloudflare_record" "base_domain" {
     type = "CNAME"
     proxied = var.proxy_kubernetes_cname
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "wildcard_base_domain" {
@@ -28,6 +31,7 @@ resource "cloudflare_record" "wildcard_base_domain" {
     type = "CNAME"
     proxied = var.proxy_kubernetes_cname
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "wildcard_k8s_base_domain" {
@@ -36,6 +40,7 @@ resource "cloudflare_record" "wildcard_k8s_base_domain" {
     type = "CNAME"
     proxied = var.proxy_kubernetes_cname
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 # === home
@@ -46,6 +51,7 @@ resource "cloudflare_record" "home_domain" {
     type = "A"
     proxied = var.proxy_home_cnames
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "ddns" {
@@ -54,6 +60,7 @@ resource "cloudflare_record" "ddns" {
     type = "CNAME"
     proxied = var.proxy_home_cnames
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "hoas" {
@@ -62,6 +69,7 @@ resource "cloudflare_record" "hoas" {
     type = "CNAME"
     proxied = var.proxy_home_cnames
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "grocy" {
@@ -70,6 +78,7 @@ resource "cloudflare_record" "grocy" {
     type = "CNAME"
     proxied = var.proxy_home_cnames
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "grafana" {
@@ -78,6 +87,7 @@ resource "cloudflare_record" "grafana" {
     type = "CNAME"
     proxied = var.proxy_home_cnames
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "irc" {
@@ -86,6 +96,7 @@ resource "cloudflare_record" "irc" {
     type = "CNAME"
     proxied = var.proxy_home_cnames
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "octo" {
@@ -94,6 +105,7 @@ resource "cloudflare_record" "octo" {
     type = "CNAME"
     proxied = var.proxy_home_cnames
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "pihole" {
@@ -102,6 +114,7 @@ resource "cloudflare_record" "pihole" {
     type = "CNAME"
     proxied = var.proxy_home_cnames
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "plex" {
@@ -110,6 +123,7 @@ resource "cloudflare_record" "plex" {
     type = "CNAME"
     proxied = var.proxy_home_cnames
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "rss" {
@@ -118,6 +132,7 @@ resource "cloudflare_record" "rss" {
     type = "CNAME"
     proxied = var.proxy_home_cnames
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "share" {
@@ -126,6 +141,7 @@ resource "cloudflare_record" "share" {
     type = "CNAME"
     proxied = var.proxy_home_cnames
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "synclounge" {
@@ -134,6 +150,7 @@ resource "cloudflare_record" "synclounge" {
     type = "CNAME"
     proxied = var.proxy_home_cnames
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "wildcard_syncthing" {
@@ -142,6 +159,7 @@ resource "cloudflare_record" "wildcard_syncthing" {
     type = "CNAME"
     proxied = var.proxy_home_cnames
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "vpn" {
@@ -150,6 +168,7 @@ resource "cloudflare_record" "vpn" {
     type = "CNAME"
     proxied = var.proxy_home_cnames
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "zoom" {
@@ -158,6 +177,7 @@ resource "cloudflare_record" "zoom" {
     type = "CNAME"
     proxied = var.proxy_home_cnames
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 
@@ -168,6 +188,7 @@ resource "cloudflare_record" "local_dns" {
     value = var.local_dns_ip
     type = "A"
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "localhost" {
@@ -175,6 +196,7 @@ resource "cloudflare_record" "localhost" {
     value = "127.0.0.1"
     type = "A"
     zone_id = var.zone_id
+    allow_overwrite = true
 }
 
 resource "cloudflare_record" "localhost_ipv6" {
@@ -182,4 +204,5 @@ resource "cloudflare_record" "localhost_ipv6" {
     value = "::1"
     type = "AAAA"
     zone_id = var.zone_id
+    allow_overwrite = true
 }
