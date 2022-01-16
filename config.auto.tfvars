@@ -1,9 +1,0 @@
-proxy_home_ip = false
-proxy_home_cnames = false
-home_ip = "31.165.10.136"
-local_dns_ip = "10.10.10.1"
-kubernetes_static_files_ip = "34.120.41.6"
-proxy_kubernetes_static_files_ip = true
-proxy_kubernetes_static_files_cname = true
-clemens_ip = "34.71.248.159"
-proxy_clemens_ip = true
